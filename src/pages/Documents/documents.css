@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    min-width: max-content;
+}
+
+th {
+    position: sticky;
+    top: 0;
+
+    background-color: var(--clr-primary-blue);
+    color: var(--clr-bg);
+}
+
+th, td {
+    padding: .8rem;
+}
+
+.table-wrapper {
+    max-height: 300px;
+    overflow-y: scroll;
+    width: fit-content;
+    max-width: 100%;
+    border: 1px solid black;
+}
+
+.outer-wrapper {
+    padding: 2rem;
+}
