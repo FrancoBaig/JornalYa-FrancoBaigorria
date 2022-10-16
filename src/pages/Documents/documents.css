@@ -20,8 +20,25 @@ th {
     color: var(--clr-bg);
 }
 
+th:nth-child(-n+3) {
+    padding: .5rem 4.5rem;
+}
+
+th:first-child{
+    padding-left: 1rem;
+}
+
 td {
     padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+td:first-child {
+    text-align: left;
+}
+
+td:last-child {
+    text-align: right;
 }
 
 tr {
