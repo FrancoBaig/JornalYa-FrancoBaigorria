@@ -4,6 +4,7 @@
   --clr-base-dark: #6e6e6e;
   --clr-border-light: #ebebeb;
   --clr-bg: #FFFFFF;
+  --clr-error: #F55;
 }
 
 body {
