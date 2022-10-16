@@ -21,41 +21,48 @@ function TablePanel() {
     </div>
   );
 }
-function Documents({ data }) {
+function Documents({ data, loading, error }) {
   return (
     <div className="documents-wrapper">
-      <div className="outer-wrapper">
-        <TablePanel />
-        <div className="table-wrapper">
-          <table>
-            <thead>
-              <th>Colaborador</th>
-              <th>Cuil</th>
-              <th>Nombre Documento</th>
-              <th>Periodo</th>
-              <th>Fecha Creación</th>
-              <th>Fecha Asignación</th>
-              <th>Acciones</th>
-            </thead>
-            <tbody>
-              {data.map((el) => (
-                <tr key={el.id}>
-                  <td>{el.attributes.ownerFullName}</td>
-                  <td>{el.attributes.ownerCuil}</td>
-                  <td>{el.attributes.name}</td>
-                  <td>{el.attributes.period}</td>
-                  <td>{formatDate(el.attributes.creationDate)}</td>
-                  <td>{formatDate(el.attributes.assignmentDate)}</td>
-                  <td>
-                    <FaSearch size="1.3rem" color="#828282" />
-                  </td>
+      {loading && <h2>loading...</h2>}
+      {!loading && error && (
+        <h2>hubo un error, por favor, inténtalo más tarde</h2>
+      )}
+      {!loading && !error && data && (
+        <div className="outer-wrapper">
+          <TablePanel />
+          <div className="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Colaborador</th>
+                  <th>Cuil</th>
+                  <th>Nombre Documento</th>
+                  <th>Periodo</th>
+                  <th>Fecha Creación</th>
+                  <th>Fecha Asignación</th>
+                  <th>Acciones</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {data?.map((el) => (
+                  <tr key={el.id}>
+                    <td>{el.attributes.ownerFullName}</td>
+                    <td>{el.attributes.ownerCuil}</td>
+                    <td>{el.attributes.name}</td>
+                    <td>{el.attributes.period}</td>
+                    <td>{formatDate(el.attributes.creationDate)}</td>
+                    <td>{formatDate(el.attributes.assignmentDate)}</td>
+                    <td>
+                      <FaSearch size="1.3rem" color="#828282" />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-      ;
+      )}
     </div>
   );
 }
@@ -64,7 +71,7 @@ Documents.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
-      attributes: {
+      attributes: PropTypes.shape({
         assignmentDate: PropTypes.string,
         creationDate: PropTypes.string,
         currentStep: PropTypes.number,
@@ -79,9 +86,16 @@ Documents.propTypes = {
         totalSteps: PropTypes.number,
         visibleInView: PropTypes.bool,
         period: PropTypes.string,
-      },
+      }),
     })
-  ).isRequired,
+  ),
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
+};
+
+Documents.defaultProps = {
+  data: undefined,
+  error: '',
 };
 
 export default Documents;
