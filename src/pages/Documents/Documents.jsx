@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import './documents.css';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaSearch } from 'react-icons/fa';
 import formatDate from '../../helper/formatDate';
 
 function TablePanel() {
@@ -46,7 +46,9 @@ function Documents({ data }) {
                   <td>{el.attributes.period}</td>
                   <td>{formatDate(el.attributes.creationDate)}</td>
                   <td>{formatDate(el.attributes.assignmentDate)}</td>
-                  <td>lupa</td>
+                  <td>
+                    <FaSearch size="1.3rem" color="#828282" />
+                  </td>
                 </tr>
               ))}
             </tbody>
