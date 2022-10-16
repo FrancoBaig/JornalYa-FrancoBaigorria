@@ -2,7 +2,14 @@ import PropTypes from 'prop-types';
 import Logo from '../../components/Logo/Logo';
 import './login.css';
 
-function LogIn({ handleSubmit }) {
+function LogIn({
+  handleSubmit,
+  userName,
+  setUserName,
+  password,
+  setPassword,
+  error,
+}) {
   return (
     <div className="container--log-in">
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
@@ -15,6 +22,8 @@ function LogIn({ handleSubmit }) {
           className="form__input"
           type="text"
           placeholder="Ingresá tu usuario"
+          value={userName}
+          onChange={({ target }) => setUserName(target.value)}
           required
         />
         <input
@@ -22,10 +31,17 @@ function LogIn({ handleSubmit }) {
           type="password"
           placeholder="Ingresá tu contraseña"
           required
+          value={password}
+          onChange={({ target }) => setPassword(target.value)}
         />
         <button className="form__button" type="submit">
           Ingresar
         </button>
+        {error && (
+          <p className="form__text form__text--error">
+            Contraseña y/o usuario inválido
+          </p>
+        )}
         <p className="form__text form__text--forget-password">
           Olvidé mi contraseña
         </p>
@@ -40,6 +56,15 @@ function LogIn({ handleSubmit }) {
 
 LogIn.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  error: PropTypes.string,
+  userName: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  setUserName: PropTypes.func.isRequired,
+  setPassword: PropTypes.func.isRequired,
+};
+
+LogIn.defaultProps = {
+  error: '',
 };
 
 export default LogIn;
