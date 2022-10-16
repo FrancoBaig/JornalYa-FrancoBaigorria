@@ -1,0 +1,109 @@
+.container--log-in {
+    min-height: 80vh;
+    background-image: url(/src/assets/wave.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 10vh 1rem;
+}
+
+
+.form {
+    display: grid;
+    border-radius: 12px;
+    margin: 1rem;
+    padding: 2.5rem 1rem;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+    position: relative;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+}
+
+.form__image {
+    width: 100%;
+    max-width: 15rem;
+    justify-self: center;
+}
+
+.form__text {
+    color: var(--clr-base);
+    font-size: .9rem;
+}
+
+.form__input {
+    padding: .6rem .8rem;
+    border: 1px solid var(--clr-border-light);
+    border-radius: 4px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    color: var(--clr-base-dark);
+    margin-bottom: .5rem;
+}
+
+.form__button {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Poppins';
+    font-weight: 500; 
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--clr-base);
+}
+
+.form__text--forget-password {
+    text-align: center;
+    color: #a5c5d2;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.form__options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+}
+
+.form__options__item {
+    width: 100%;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin: 1rem 0 0 0;
+    border-top: 1px solid var(--clr-border-light);
+    font-size: .8rem;
+    font-weight: 400;
+}
+
+.form__options__item:first-child {
+    border-right: 1px solid var(--clr-border-light);
+}
+
+@media only screen and (min-width: 600px) {
+    .form {
+        padding: 2.5rem 3rem;
+        max-width: 25rem;
+    }
+
+    .form__options__item {
+        font-size: .9rem;
+    }
+}
+
+@media only screen and (min-width: 950px) {
+    .form {
+        margin: 0;
+    }
+
+    .container--log-in {
+        background-image: url(https://sbox-dev.boxcustodia.com/api/background?tenant=lkjhl);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        padding-top: 6rem;
+        padding-left: 5rem;
+        padding-bottom: 7rem;
+        min-height: 10vh;
+    }
+}

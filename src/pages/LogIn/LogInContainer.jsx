@@ -1,5 +1,12 @@
+import LogIn from './LogIn';
+
 function LogInContainer() {
-  return <div>LogInContainer</div>;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('login');
+  };
+
+  return <LogIn handleSubmit={handleSubmit} />;
 }
 
 export default LogInContainer;
