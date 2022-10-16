@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LogIn from './LogIn';
 import useAxiosFunction from '../../hooks/useAxiosFunction';
 import axios from '../../apis/login';
@@ -7,11 +8,12 @@ function LogInContainer() {
   const [response, error, loading, axiosFetch] = useAxiosFunction();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axiosFetch({
+    axiosFetch({
       axiosInstance: axios,
       method: 'POST',
       url: '/login',
@@ -28,6 +30,8 @@ function LogInContainer() {
   useEffect(() => {
     if (response.length === 0) return;
     sessionStorage.setItem('token', response.token);
+    navigate('/documents');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
   return (
