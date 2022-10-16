@@ -1,0 +1,35 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: .5rem;
+
+    border-top: 1px solid var(--clr-base-light);
+    background-color: var(--clr-bg);
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer__image {
+    max-width: 6rem;
+}
+
+.footer__text {
+    font-size: .65rem;
+    color: var(--clr-base-light);
+}
+
+@media only screen and (min-width: 600px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: .5rem 2rem;
+    }
+
+    .footer__image {
+        width: 10%;
+        justify-content: center;
+    }
+}
