@@ -15,7 +15,7 @@ function TablePanel({ handleFilter }) {
           className="btn-icon"
           fontSize="1.8rem"
           color="#4450b1"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/home')}
         />
         <p className="panel__text">Mi Panel</p>
         <span className="panel__text">/</span>
@@ -104,6 +104,7 @@ DocumentsTable.propTypes = {
     })
   ),
   handleFilter: PropTypes.func.isRequired,
+  handleTableAction: PropTypes.func.isRequired,
 };
 
 DocumentsTable.defaultProps = {
