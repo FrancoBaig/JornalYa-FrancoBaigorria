@@ -2,7 +2,6 @@
     background-color: var(--clr-primary-blue);
     color: var(--clr-bg);
     padding: .3rem 1rem;
-    width: 100%;
 }
 
 .control-panel__actions {
@@ -17,7 +16,6 @@
 }
 
 .pdf-wrapper {
-    padding: 3rem;
     width: 100%;
 }
 
