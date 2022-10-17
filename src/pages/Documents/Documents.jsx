@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import './documents.css';
 import Table from '../../components/Table/DocumentsTable';
+import Loader from '../../components/Loader/Loader';
 
 function Documents({ data, loading, error, handleFilter, handleTableAction }) {
   return (
     <div className="documents-wrapper">
-      {loading && <h2>loading...</h2>}
+      {loading && <Loader />}
       {!loading && error && (
         <h2>hubo un error, por favor, inténtalo más tarde</h2>
       )}

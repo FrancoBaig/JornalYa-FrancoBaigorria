@@ -1,17 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import Modal from '../../../components/Modal/Modal';
 import PDFViewer from '../../../components/PDFViewer/PDFViewer';
+import Loader from '../../../components/Loader/Loader';
 import './documentDetails.css';
-
-function Loader() {
-  return <h3>loading..</h3>;
-}
 
 function DocumentDetail({ pdf, loading, error }) {
   const navigate = useNavigate();
-  if (loading || error || !pdf) {
-    <Loader />;
-  }
 
   function handleClose() {
     navigate('/documents');
@@ -20,6 +14,7 @@ function DocumentDetail({ pdf, loading, error }) {
   return (
     <Modal>
       <div className="details-wrapper">
+        {loading && error && <Loader />}
         <div className="modal-header">
           <h2 className="modal-header__title">
             Recibos de sueldo de: Matias Romero
