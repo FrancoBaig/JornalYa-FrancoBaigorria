@@ -17,8 +17,8 @@ function PDFPanel({ scale, setScale }) {
     <div className="control-panel">
       <div className="control-panel__actions">
         <span>{(scale * 100).toFixed()}%</span>
-        <FaSearchPlus onClick={() => zoomIn()} />
-        <FaSearchMinus onClick={() => zoomOut()} />
+        <FaSearchPlus className="btn-icon" onClick={() => zoomIn()} />
+        <FaSearchMinus className="btn-icon" onClick={() => zoomOut()} />
       </div>
     </div>
   );
