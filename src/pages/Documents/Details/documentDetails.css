@@ -1,0 +1,20 @@
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--clr-base-dark);
+    margin-bottom: .5rem;
+    border-bottom: 3px solid var(--clr-primary-blue);
+    padding: 1rem 0;
+}
+
+.modal-header__title {
+    font-weight: 500;
+    color: #333333;
+    margin: 0rem;
+}
+
+.details-wrapper {
+    padding: 0 2rem;
+    width: 100%;
+}
