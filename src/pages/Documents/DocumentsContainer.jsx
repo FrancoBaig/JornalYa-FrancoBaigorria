@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import Documents from './Documents';
 import useAxiosFunction from '../../hooks/useAxiosFunction';
 import axiosDocuments from '../../apis/documents';
@@ -25,12 +26,15 @@ function DocumentsContainer() {
   }, []);
 
   return (
-    <Documents
-      data={response.documents}
-      error={error}
-      loading={loading}
-      handleFilter={handleFilter}
-    />
+    <>
+      <Documents
+        data={response.documents}
+        error={error}
+        loading={loading}
+        handleFilter={handleFilter}
+      />
+      <Outlet />
+    </>
   );
 }
 
