@@ -29,7 +29,7 @@ function TablePanel({ handleFilter }) {
   );
 }
 
-function DocumentsTable({ data, handleFilter }) {
+function DocumentsTable({ data, handleFilter, handleTableAction }) {
   return (
     <div className="outer-wrapper">
       <TablePanel handleFilter={handleFilter} />
@@ -56,7 +56,11 @@ function DocumentsTable({ data, handleFilter }) {
                 <td>{formatDate(el.attributes.creationDate)}</td>
                 <td>{formatDate(el.attributes.assignmentDate)}</td>
                 <td>
-                  <FaSearch size="1.3rem" color="#828282" />
+                  <FaSearch
+                    size="1.3rem"
+                    color="#828282"
+                    onClick={() => handleTableAction(el.id)}
+                  />
                 </td>
               </tr>
             ))}
