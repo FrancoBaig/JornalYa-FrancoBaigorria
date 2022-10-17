@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaArrowLeft, FaSearch } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import formatDate from '../../helper/formatDate';
 import './table.css';
 
 function TablePanel({ handleFilter }) {
   const [filter, setFilter] = useState('');
+  const navigate = useNavigate();
   return (
     <div className="documents__panel">
       <div className="panel__back">
-        <FaArrowLeft fontSize="1.8rem" color="#4450b1" />
+        <FaArrowLeft
+          className="btn-icon"
+          fontSize="1.8rem"
+          color="#4450b1"
+          onClick={() => navigate(-1)}
+        />
         <p className="panel__text">Mi Panel</p>
         <span className="panel__text">/</span>
         <p className="panel__text panel__text--bold">Firmar Documentos</p>
