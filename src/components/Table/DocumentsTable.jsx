@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaArrowLeft, FaSearch } from 'react-icons/fa';
 import formatDate from '../../helper/formatDate';
 import './table.css';
 
-function TablePanel() {
+function TablePanel({ handleFilter }) {
+  const [filter, setFilter] = useState('');
   return (
     <div className="documents__panel">
       <div className="panel__back">
@@ -12,8 +14,13 @@ function TablePanel() {
         <span className="panel__text">/</span>
         <p className="panel__text panel__text--bold">Firmar Documentos</p>
       </div>
-      <form className="panel__form">
-        <input type="text" placeholder="Nombre" />
+      <form className="panel__form" onSubmit={(e) => handleFilter(e, filter)}>
+        <input
+          type="text"
+          placeholder="Nombre"
+          value={filter}
+          onChange={({ target }) => setFilter(target.value)}
+        />
         <button type="submit" className="btn btn--primary">
           Buscar
         </button>
@@ -22,10 +29,10 @@ function TablePanel() {
   );
 }
 
-function DocumentsTable({ data }) {
+function DocumentsTable({ data, handleFilter }) {
   return (
     <div className="outer-wrapper">
-      <TablePanel />
+      <TablePanel handleFilter={handleFilter} />
       <div className="table-wrapper">
         <table>
           <thead>
@@ -82,10 +89,15 @@ DocumentsTable.propTypes = {
       }),
     })
   ),
+  handleFilter: PropTypes.func.isRequired,
 };
 
 DocumentsTable.defaultProps = {
   data: undefined,
+};
+
+TablePanel.propTypes = {
+  handleFilter: PropTypes.func.isRequired,
 };
 
 export default DocumentsTable;

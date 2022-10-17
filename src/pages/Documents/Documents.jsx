@@ -2,14 +2,16 @@ import PropTypes from 'prop-types';
 import './documents.css';
 import Table from '../../components/Table/DocumentsTable';
 
-function Documents({ data, loading, error }) {
+function Documents({ data, loading, error, handleFilter }) {
   return (
     <div className="documents-wrapper">
       {loading && <h2>loading...</h2>}
       {!loading && error && (
         <h2>hubo un error, por favor, inténtalo más tarde</h2>
       )}
-      {!loading && !error && data && <Table data={data} />}
+      {!loading && !error && data && (
+        <Table data={data} handleFilter={handleFilter} />
+      )}
     </div>
   );
 }
@@ -38,6 +40,7 @@ Documents.propTypes = {
   ),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string,
+  handleFilter: PropTypes.func.isRequired,
 };
 
 Documents.defaultProps = {
