@@ -28,3 +28,7 @@ body {
     background-color: var(--clr-primary-blue);
     color: var(--clr-bg);
 }
+
+.btn-icon {
+    cursor: pointer;
+}

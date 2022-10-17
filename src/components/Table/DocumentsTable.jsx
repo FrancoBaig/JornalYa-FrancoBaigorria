@@ -59,6 +59,7 @@ function DocumentsTable({ data, handleFilter, handleTableAction }) {
                   <FaSearch
                     size="1.3rem"
                     color="#828282"
+                    className="btn-icon"
                     onClick={() =>
                       handleTableAction(el.id, el.attributes.ownerFullName)
                     }
