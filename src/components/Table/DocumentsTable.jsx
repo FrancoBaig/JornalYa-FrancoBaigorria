@@ -59,7 +59,9 @@ function DocumentsTable({ data, handleFilter, handleTableAction }) {
                   <FaSearch
                     size="1.3rem"
                     color="#828282"
-                    onClick={() => handleTableAction(el.id)}
+                    onClick={() =>
+                      handleTableAction(el.id, el.attributes.ownerFullName)
+                    }
                   />
                 </td>
               </tr>

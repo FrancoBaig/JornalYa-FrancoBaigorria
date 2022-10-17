@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import Modal from '../../../components/Modal/Modal';
 import PDFViewer from '../../../components/PDFViewer/PDFViewer';
 import Loader from '../../../components/Loader/Loader';
 import './documentDetails.css';
 
 function DocumentDetail({ pdf, loading, error }) {
+  const ownerName = useOutletContext();
   const navigate = useNavigate();
 
   function handleClose() {
@@ -17,7 +18,7 @@ function DocumentDetail({ pdf, loading, error }) {
         {loading && error && <Loader />}
         <div className="modal-header">
           <h2 className="modal-header__title">
-            Recibos de sueldo de: Matias Romero
+            Recibos de sueldo de: {ownerName}
           </h2>
           <button className="btn btn--primary" onClick={handleClose}>
             Cerrar

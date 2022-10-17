@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Documents from './Documents';
 import useAxiosFunction from '../../hooks/useAxiosFunction';
@@ -6,6 +6,7 @@ import axiosDocuments from '../../apis/documents';
 
 function DocumentsContainer() {
   const [response, error, loading, axiosFetch] = useAxiosFunction();
+  const [ownerName, setOwnerName] = useState('Juan');
   const navigate = useNavigate();
 
   const getDocuments = (filter = '') => {
@@ -21,7 +22,8 @@ function DocumentsContainer() {
     getDocuments(filter);
   };
 
-  const handleRedirectToPDF = (id) => {
+  const handleRedirectToPDF = (id, ownerName) => {
+    setOwnerName(ownerName);
     navigate(`/documents/${id}`);
   };
 
@@ -39,7 +41,7 @@ function DocumentsContainer() {
         handleFilter={handleFilter}
         handleTableAction={handleRedirectToPDF}
       />
-      <Outlet />
+      <Outlet context={ownerName} />
     </>
   );
 }
