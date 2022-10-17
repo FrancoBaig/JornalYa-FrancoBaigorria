@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import LogIn from './LogIn';
 import useAxiosFunction from '../../hooks/useAxiosFunction';
 import axios from '../../apis/login';
@@ -8,7 +9,16 @@ function LogInContainer() {
   const [response, error, loading, axiosFetch] = useAxiosFunction();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [type, setType] = useState('password');
   const navigate = useNavigate();
+
+  const handleToggleVisibility = () => {
+    if (type === 'password') {
+      setType('text');
+    } else {
+      setType('password');
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,10 +48,10 @@ function LogInContainer() {
     <LogIn
       handleSubmit={handleSubmit}
       error={error}
-      userName={userName}
       setUserName={setUserName}
-      password={password}
       setPassword={setPassword}
+      handleToggleVisibility={handleToggleVisibility}
+      inputType={type}
     />
   );
 }

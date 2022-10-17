@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../../components/Logo/Logo';
 import './login.css';
 
 function LogIn({
   handleSubmit,
-  userName,
   setUserName,
-  password,
   setPassword,
   error,
+  handleToggleVisibility,
+  inputType,
 }) {
+  const PasswordIcon = inputType === 'password' ? FaEye : FaEyeSlash;
   return (
     <div className="container--log-in">
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
@@ -22,18 +24,21 @@ function LogIn({
           className="form__input"
           type="text"
           placeholder="Ingresá tu usuario"
-          value={userName}
           onChange={({ target }) => setUserName(target.value)}
           required
         />
-        <input
-          className="form__input"
-          type="password"
-          placeholder="Ingresá tu contraseña"
-          required
-          value={password}
-          onChange={({ target }) => setPassword(target.value)}
-        />
+        <div className="form__input__password">
+          <input
+            className="form__input"
+            type={inputType}
+            placeholder="Ingresá tu contraseña"
+            required
+            onChange={({ target }) => setPassword(target.value)}
+          />
+          <span className="form__input__visibility-icon">
+            <PasswordIcon onClick={handleToggleVisibility} />
+          </span>
+        </div>
         <button className="form__button" type="submit">
           Ingresar
         </button>
@@ -57,10 +62,10 @@ function LogIn({
 LogIn.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   error: PropTypes.string,
-  userName: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
   setUserName: PropTypes.func.isRequired,
   setPassword: PropTypes.func.isRequired,
+  handleToggleVisibility: PropTypes.func.isRequired,
+  inputType: PropTypes.string.isRequired,
 };
 
 LogIn.defaultProps = {

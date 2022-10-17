@@ -39,6 +39,23 @@
     margin-bottom: .5rem;
 }
 
+.form__input__password {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form__input__password > input {
+    width: 100%;
+    padding-right: 3rem;
+}
+
+.form__input__visibility-icon {
+    position: absolute;
+    right: .8rem;
+    font-size: 1.5rem;
+}
+
 .form__button {
     margin-top: 1.5rem;
     padding: 1rem;
