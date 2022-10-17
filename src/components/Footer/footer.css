@@ -25,7 +25,7 @@
     .footer {
         flex-direction: row;
         justify-content: space-between;
-        padding: .5rem 0;
+        padding: .9rem 0;
     }
 
     .footer__image {
