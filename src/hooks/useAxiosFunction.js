@@ -23,7 +23,7 @@ const useAxiosFunction = () => {
         ...headers,
         signal: ctrl.signal,
       });
-      setResponse(res.data.body);
+      setResponse(res.data.body || res.data);
     } catch (err) {
       setError(err.message);
     } finally {
