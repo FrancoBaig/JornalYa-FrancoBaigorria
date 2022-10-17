@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
+        <Route element={<MainLayout />}>
           <Route path="/login" element={<LogInContainer />} />
           <Route path="/documents" element={<DocumentsContainer />}>
             <Route path=":id" element={<DocumentDetailContainer />} />
