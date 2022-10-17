@@ -19,6 +19,7 @@ function DocumentsContainer() {
 
   const handleFilter = (event, filter) => {
     event.preventDefault();
+    navigate(`/documents?name=${filter}`);
     getDocuments(filter);
   };
 
