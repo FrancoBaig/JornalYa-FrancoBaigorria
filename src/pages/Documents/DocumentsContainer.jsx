@@ -1,19 +1,30 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Documents from './Documents';
 import useAxiosFunction from '../../hooks/useAxiosFunction';
-import axiosDocuments from '../../apis/documents';
 
 function DocumentsContainer() {
   const [response, error, loading, axiosFetch] = useAxiosFunction();
-  const [ownerName, setOwnerName] = useState('Juan');
+  const [ownerName, setOwnerName] = useState('');
   const navigate = useNavigate();
 
   const getDocuments = (filter = '') => {
+    const instance = axios.create({
+      baseURL: 'https://sbox-dev.boxcustodia.com/api-test',
+      headers: {
+        'Content-Type': 'application/json',
+        token: sessionStorage.getItem('token'),
+      },
+    });
+
     axiosFetch({
-      axiosInstance: axiosDocuments,
+      axiosInstance: instance,
       method: 'get',
       url: `/documents?name=${filter}`,
+      headers: {
+        token: sessionStorage.getItem('token'),
+      },
     });
   };
 

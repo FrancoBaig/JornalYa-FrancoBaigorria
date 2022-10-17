@@ -30,7 +30,7 @@ function LogInContainer() {
   useEffect(() => {
     if (response.length === 0) return;
     sessionStorage.setItem('token', response.token);
-    navigate('/documents');
+    navigate('/home');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
