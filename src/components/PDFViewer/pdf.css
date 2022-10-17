@@ -1,0 +1,28 @@
+.control-panel {
+    background-color: var(--clr-primary-blue);
+    color: var(--clr-bg);
+    padding: .3rem 1rem;
+    width: 100%;
+}
+
+.control-panel__actions {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.2rem;
+}
+
+.control-panel__actions > span {
+    font-size: 1rem;
+}
+
+.pdf-wrapper {
+    padding: 3rem;
+    width: 100%;
+}
+
+.react-pdf__Page__canvas {
+    margin: 0 auto;
+    /* min-width: 60vw !important; */
+    /* height: 100% !important; */
+}
