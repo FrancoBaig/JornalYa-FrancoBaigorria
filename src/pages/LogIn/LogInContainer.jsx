@@ -39,7 +39,7 @@ function LogInContainer() {
     sessionStorage.setItem('token', response.token);
     setUserName('');
     setPassword('');
-    navigate('/home');
+    navigate('/documents');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
