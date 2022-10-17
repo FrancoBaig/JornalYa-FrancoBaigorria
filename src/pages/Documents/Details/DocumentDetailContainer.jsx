@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import DocumentDetail from './DocumentDetail';
-import axiosDocuments from '../../../apis/documentsPDF';
 import useAxiosFunction from '../../../hooks/useAxiosFunction';
 
 function DocumentDetailContainer() {
@@ -10,8 +10,17 @@ function DocumentDetailContainer() {
   const { id } = useParams();
 
   const getDocuments = () => {
+    const instance = axios.create({
+      baseURL: 'https://sbox-dev.boxcustodia.com/api-test',
+      headers: {
+        'Content-Type': 'application/json',
+        token: sessionStorage.getItem('token'),
+      },
+      responseType: 'blob',
+    });
+
     axiosFetch({
-      axiosInstance: axiosDocuments,
+      axiosInstance: instance,
       method: 'get',
       url: `/document/${id}`,
     });
