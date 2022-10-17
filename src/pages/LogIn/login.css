@@ -116,18 +116,17 @@
     }
 }
 
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 1400px) {
     .form {
         margin: 0;
     }
 
     .container--log-in {
         background-image: url(https://sbox-dev.boxcustodia.com/api/background?tenant=lkjhl);
-        background-size: 100%;
+        background-size: cover;
         background-repeat: no-repeat;
         padding-top: 6rem;
         padding-left: 5rem;
         padding-bottom: 7rem;
-        min-height: 10vh;
     }
 }
