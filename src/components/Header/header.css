@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--clr-bg);
+    padding-top: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .header {
+        padding: .7rem 2rem;
+        justify-content: flex-start;
+    }
+}
