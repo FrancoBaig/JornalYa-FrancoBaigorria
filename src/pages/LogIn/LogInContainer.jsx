@@ -32,14 +32,13 @@ function LogInContainer() {
         password,
       },
     });
-
-    setUserName('');
-    setPassword('');
   };
 
   useEffect(() => {
     if (response.length === 0) return;
     sessionStorage.setItem('token', response.token);
+    setUserName('');
+    setPassword('');
     navigate('/home');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
