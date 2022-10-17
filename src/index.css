@@ -14,3 +14,17 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--clr-base)
 }
+
+.btn {
+    padding: .5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    height: fit-content;
+    font-weight: bold;
+}
+
+.btn--primary {
+    background-color: var(--clr-primary-blue);
+    color: var(--clr-bg);
+}
