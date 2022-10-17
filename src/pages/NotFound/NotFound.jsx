@@ -4,9 +4,7 @@ import './notfound.css';
 function NotFound() {
   return (
     <div className="notfound-wrapper">
-      <h3>
-        No se encontró esta página, por favor intenta una de las siguientes
-      </h3>
+      <h3>Utiliza alguno de estos enlaces:</h3>
       <ul>
         <Link to="/login">
           <li>Log in</li>
