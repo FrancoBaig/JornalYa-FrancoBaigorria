@@ -4,6 +4,7 @@ import DocumentDetailContainer from './pages/Documents/Details/DocumentDetailCon
 import LogInContainer from './pages/LogIn/LogInContainer';
 import NotFound from './pages/NotFound/NotFound';
 import MainLayout from './components/Layout/MainLayout';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -11,7 +12,14 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/login" element={<LogInContainer />} />
-          <Route path="/documents" element={<DocumentsContainer />}>
+          <Route
+            path="/documents"
+            element={
+              <PrivateRoute>
+                <DocumentsContainer />
+              </PrivateRoute>
+            }
+          >
             <Route path=":id" element={<DocumentDetailContainer />} />
           </Route>
           <Route path="*" element={<NotFound />} />
